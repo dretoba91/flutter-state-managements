@@ -33,7 +33,7 @@ class CounterScreen extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    "${counter.value}",
+                    "$value",
                   ),
                   SizedBox(
                     height: 10,
