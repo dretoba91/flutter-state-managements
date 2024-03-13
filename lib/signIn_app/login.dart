@@ -17,6 +17,13 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordEditingController =
       TextEditingController();
   final FocusNode focusNode = FocusNode();
+  bool isLoading = false;
+
+  checkIsLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -139,31 +146,40 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
                 width: 300,
                 child: ElevatedButton(
-                    onPressed: () {
-                      Provider.of<UserProvider>(context, listen: false)
-                          .setEmail(emailEditingController.text);
+                  onPressed: () {
+                    checkIsLoading();
+                    Provider.of<UserProvider>(context, listen: false)
+                        .setEmail(emailEditingController.text);
+                    Future.delayed(Duration(seconds: 2), () {
                       context.goNamed('user-info', extra: {
                         'userEmail': emailEditingController.text,
                       });
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrange,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(24)),
-                        textStyle: TextStyle(
-                            color: Color(0xFF1E1E1E),
-                            fontFamily: "Montserrat",
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500)),
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                          color: Color(0xFFFFFFFF),
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepOrange,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24)),
+                      textStyle: TextStyle(
+                          color: Color(0xFF1E1E1E),
                           fontFamily: "Montserrat",
                           fontSize: 16,
-                          fontWeight: FontWeight.w500),
-                    )),
+                          fontWeight: FontWeight.w500)),
+                  child: isLoading
+                      ? CircularProgressIndicator(
+                          color: Colors.white,
+                        )
+                      : Text(
+                          'Sign In',
+                          style: TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontFamily: "Montserrat",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                ),
               ),
             ),
           ],

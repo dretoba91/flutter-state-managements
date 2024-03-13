@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:flutter_state_managements/helpers/user_provider.dart';
