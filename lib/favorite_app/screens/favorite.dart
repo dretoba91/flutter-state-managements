@@ -57,8 +57,8 @@ class _FavoritePageState extends State<FavoritePage> {
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
-        title: const Text(
-          'Provider',
+        title: Text(
+          'My List (${Provider.of<MovieProvider>(context, listen: false).addedFavoriteMovies.length})',
           style: TextStyle(
             color: Color.fromARGB(255, 255, 255, 255),
             fontFamily: "Montserrat",
