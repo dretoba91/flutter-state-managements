@@ -28,11 +28,7 @@ class _FavoritePageState extends State<FavoritePage> {
   }
 
   removeFavoriteMovie(int index) {
-    log('id passed $index');
-
-    log("inside map method: $index");
     for (var movie in favoriteMovies.toList()) {
-      log("fav lenght: $favoriteMovies");
       if (movie['id'] == index) {
         setState(() {
           Provider.of<MovieProvider>(context, listen: false)
@@ -48,7 +44,6 @@ class _FavoritePageState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     favoriteMovies =
         Provider.of<MovieProvider>(context, listen: false).addedFavoriteMovies;
-    log("build $favoriteMovies");
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

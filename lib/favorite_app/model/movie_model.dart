@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class MovieModel {
   List<Map<String, dynamic>> movies = [
     {

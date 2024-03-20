@@ -32,27 +32,14 @@ class _MoviesState extends State<Movies> {
   }
 
   clickFavorite(int index) {
-    log('id passed $index');
-
-    log("inside map method: $index");
     for (var movie in movieLists) {
       if (movie['id'] == index) {
         removeDup.add(movie);
         Provider.of<MovieProvider>(context, listen: false)
             .setAddedFavoriteMovies(movie);
-        // if (Provider.of<MovieProvider>(context, listen: false)
-        //     .addedFavoriteMovies
-        //     .contains(movie)) {
-        //   log("this is true");
-        // } else {
-        //   Provider.of<MovieProvider>(context, listen: false)
-        //       .setAddedFavoriteMovies(movie);
-        // }
       }
     }
     favoriteMovies = removeDup.toSet().toList();
-
-    log("movies added => $favoriteMovies");
   }
 
   @override

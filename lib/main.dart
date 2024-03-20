@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_managements/helpers/color_provider.dart';
 import 'package:flutter_state_managements/helpers/movie_provider.dart';
 import 'package:flutter_state_managements/helpers/routes.dart';
 import 'package:flutter_state_managements/helpers/user_provider.dart';
@@ -13,6 +14,9 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => MovieProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => ColorProvider(),
       )
     ],
     child: const MyApp(),

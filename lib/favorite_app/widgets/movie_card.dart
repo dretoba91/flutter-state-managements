@@ -69,7 +69,6 @@ class MovieCards extends StatelessWidget {
                         clickedFavorite();
                         Provider.of<MovieProvider>(context, listen: false)
                             .setClickedFavorite(id);
-                        log("clicked icon");
                       },
                       child: Icon(
                         Icons.favorite,

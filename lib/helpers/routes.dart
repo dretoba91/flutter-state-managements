@@ -1,3 +1,4 @@
+import 'package:flutter_state_managements/color_picker/color_picker.dart';
 import 'package:flutter_state_managements/favorite_app/screens/favorite.dart';
 import 'package:flutter_state_managements/favorite_app/screens/movies.dart';
 import 'package:flutter_state_managements/signIn_app/login.dart';
@@ -10,6 +11,13 @@ class RouteHelpers {
     routes: [
       GoRoute(
         path: '/',
+        name: 'color-picker',
+        builder: (context, state) {
+          return const ColorPicker();
+        },
+      ),
+      GoRoute(
+        path: '/movies',
         name: 'movies',
         builder: (context, state) {
           return const Movies();
